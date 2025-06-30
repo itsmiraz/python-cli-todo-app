@@ -17,19 +17,39 @@ A simple, interactive command-line Todo application built with Python. It suppor
 - 🧼 `clear` command to wipe your screen
 
 ---
-## 🧪 Getting Started
-
-### 1. Clone the Repository
 
 
 ## 📦 Requirements
 
 - Python 3.8+
 - Install dependencies:
+## 🧪 Getting Started
 
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/itsmiraz/python-cli-todo-app.git
+
+```
+
+### 2️⃣ Navigate into the Project
+
+```bash
 cd python-cli-todo-app
+```
+
+### 3️⃣ Install Dependencies
+```bash
 pip install -r requirements.txt
+```
+
+### 4️⃣ Run the App (Windows)
+```bash
 ./run.bat
+```
+
+### 💡 For macOS/Linux users:
+
+```bash
+python main.py
+```
