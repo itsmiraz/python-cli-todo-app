@@ -111,45 +111,45 @@ def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-if username in VALID_USERS and password == VALID_USERS[username]:
-    print('Login Successfully\n')
-    while True:
-        command = input('todo> ').strip()
+def handle_command(command: str):
+    command = input('todo> ').strip()
 
-        inputs = command.split(" ")  # spliting for geting the command first
+    inputs = command.split(" ")  # spliting for geting the command first
+    try:
 
         if command == 'help':
             help_instruction()
-
-        if command == 'clear':
+        elif command == 'clear':
             clear_console()
-
-        if inputs[0] == 'del':
+        elif inputs[0] == 'del':
             id = int(inputs[1])
             PermissionError(id)
             del_todo(id)
-
-        if command == 'ls':
+        elif command == 'ls':
             show_all_todos()
-
-        if inputs[0] == 'done':
+        elif inputs[0] == 'done':
             id = int(inputs[1])
             mark_todo_done(id)
+        elif command == 'exit':
+            print('Bye!')
+            exit()
 
-        if command == 'exit':
-            break
-
-        if inputs[0] == 'add':
+        elif inputs[0] == 'add':
             addTodo(inputs)
+        else:
+            print('Unknown command. Type `help` to see available commands.')
+
+    except (IndexError, ValueError):
+        print('Invalid usage. Type `help` for command examples.')
 
 
+if username in VALID_USERS and password == VALID_USERS[username]:
+    print('Login Successfully\n')
+    while True:
+        command = input('todo> ')
+        handle_command(command)
 else:
     print('Invalid Credentials')
     exit()
 
 
-# Delete todo
-
-# Show todo
-
-# Help /to show all the commands
